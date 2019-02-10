@@ -25,6 +25,10 @@ int main()
         printf("\n3 For Multiplication");
         printf("\n4 For Division\n");
         scanf("%d", &operation);
+        if(operation<1 || operation > 4) {
+                printf("Wrong Input, Try Again !!\n");
+                continue;
+            }
         if(operation==4 && operand2==0) printf("\nError - Division by zero !!\n");
         else {
             answer = calculate(operand1,operand2,operation);  
@@ -33,9 +37,10 @@ int main()
             if(operation==3) printf("\n %lf * %lf = %lf\n",operand1,operand2,answer);
             if(operation==4) printf("\n %lf / %lf = %lf\n",operand1,operand2,answer);
         } 
-        printf("Press 1 to continue and 0 to exit the calculator.\n");
+        printf("Enter 0 to exit the calculator or any other key to continue.\n");
         scanf("%d",&choice);
         if(choice==0)break;
+        else continue;
     }
     return 0;
 }
