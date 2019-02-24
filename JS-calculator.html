@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <style type="text/css" rel="stylesheet">
+            body{
+                background-color: antiquewhite;
+            }
+            div{
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="first">Enter the first Number <input type=number id="firstNumber" placeholder="first number"></div>
+        <div id="second">Enter the second Number <input type=number id="secondNumber" placeholder="second number"></div>
+        <form>
+            <select id="operation">
+            <option disabled selected value="0">-- Choose an Operation --</option>
+            <option value="1">Addition</option>
+            <option value="2">Subtraction</option>
+            <option value="3">Multiplication</option>
+            <option value="4">Divison</option>  
+        </select>
+        </form>
+        <div id="button">
+        <button type="button" id="calculate">Calculate!</button>
+        </div>
+        <div id="answer">
+            <input id="ans" placeholder="Answer">
+        </div>
+        
+        <script>
+            function calculate() {
+            var firstNum=document.getElementById("firstNumber").value;
+            var secondNum=document.getElementById("secondNumber").value;
+            var operation=document.getElementById("operation").value;
+            
+            if (firstNum === "" || secondNum === "" || operation == 0){
+                alert("Please Enter all the values");
+                return;
+            }
+            
+            
+            
+            if (operation == 1){
+                var total= (Number(firstNum) + Number(secondNum));
+            }
+            else if(operation == 2){
+                var total= (firstNum - secondNum);
+            }
+            else if(operation == 3){
+                var total= (firstNum * secondNum);
+            }
+            else{
+                if(secondNum == 0){alert("Divison by Zero is not possible.");}
+                else{var total= (firstNum/secondNum);}
+                
+            }
+            document.getElementById("answer").style.display = "block";
+            document.getElementById("ans").value = total;
+            }
+            
+            document.getElementById("calculate").onclick = function() {
+            calculate(); }
+        </script>
+    </body>
+</html>
+
+
+
+
+
